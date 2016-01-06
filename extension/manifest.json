@@ -1,0 +1,74 @@
+{
+  "name": "Bugs for Mac",
+  "version": "0.1",
+  "icons": {
+    "16": "icons/bugs.png",
+    "48": "icons/bugs.png",
+    "128": "icons/bugs.png"
+  },
+  "description": "맥의 미디어키로 음악을 컨트롤 할 수 있고 현재 재생이 시작된 곡을 알림으로 띄워줍니다.",
+  "homepage_url": "https://github.com/borismus/keysocket",
+  "permissions": ["tabs"],
+  "manifest_version": 2,
+  "commands": {
+    "prev": {
+      "suggested_key": {
+        "default": "MediaPrevTrack",
+        "mac": "MediaPrevTrack"
+      },
+      "description": "Play Previous Track",
+      "global":true
+    },
+      "play-pause": {
+        "suggested_key": {
+          "default": "MediaPlayPause",
+          "mac": "MediaPlayPause"
+        },
+        "description": "Play/Pause Active Audio",
+        "global":true
+    },
+      "next": {
+        "suggested_key": {
+          "default": "MediaNextTrack",
+          "mac": "MediaNextTrack"
+        },
+        "description": "Play Next Track",
+        "global":true
+    },
+      "stop": {
+        "suggested_key": {
+          "default": "MediaStop",
+          "mac": "MediaStop"
+        },
+        "description": "Stop Audio",
+        "global":true
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "page_action": {
+    "default_title" : "Bugs for Mac",
+    "default_icon": {
+      "19": "icons/bugs.png",
+      "38": "icons/bugs.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["media-control-api.js"]
+    },
+    {
+      "matches": ["http://music.bugs.co.kr/newPlayer*"],
+      "js": ["shared.js","keysocket-bugs.js","alert.js"]
+    },
+    {
+      "matches": ["http://music.bugs.co.kr/newRadio*"],
+      "js": ["shared.js","keysocket-bugs_.js","alert_.js"]
+    }
+  ]
+}
