@@ -1,3 +1,4 @@
+document.getElementById('searchInputPlayer').placeholder = "Bugs for Mac"
 function onKeyPress(key) {
     if (key === NEXT) {
         var nextButton = document.getElementsByTagName('button')[4];

@@ -2,12 +2,12 @@
   "name": "Bugs for Mac",
   "version": "0.1",
   "icons": {
-    "16": "icons/bugs.png",
-    "48": "icons/bugs.png",
-    "128": "icons/bugs.png"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
   "description": "맥의 미디어키로 음악을 컨트롤 할 수 있고 현재 재생이 시작된 곡을 알림으로 띄워줍니다.",
-  "homepage_url": "https://github.com/borismus/keysocket",
+  "homepage_url": "https://github.com/lev0l/bugsForMac",
   "permissions": ["tabs"],
   "manifest_version": 2,
   "commands": {
@@ -53,8 +53,8 @@
   "page_action": {
     "default_title" : "Bugs for Mac",
     "default_icon": {
-      "19": "icons/bugs.png",
-      "38": "icons/bugs.png"
+      "19": "icons/icon19.png",
+      "38": "icons/icon38.png"
     }
   },
   "content_scripts": [
@@ -64,11 +64,11 @@
     },
     {
       "matches": ["http://music.bugs.co.kr/newPlayer*"],
-      "js": ["shared.js","keysocket-bugs.js","alert.js"]
+      "js": ["shared.js","keysocket-music.js","noti_music.js"]
     },
     {
       "matches": ["http://music.bugs.co.kr/newRadio*"],
-      "js": ["shared.js","keysocket-bugs_.js","alert_.js"]
+      "js": ["shared.js","keysocket-radio.js","noti_radio.js"]
     }
   ]
 }
